@@ -1,1 +1,1 @@
-OUR SITE WOWOWOWOWOW = > {https://hahaker.github.io/gulandamClinicSite/}
+OUR SITE WOWOWOWOWOW = > https://hahaker.github.io/gulandamClinicSite
