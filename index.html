@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ГУЛЯНДАМ — Красота и молодость</title>
+    <link rel="stylesheet" href="public/main.css">
+</head>
+<body>
+<!-- HEADER -->
+<header class="header" id="header" data-module="header">
+    <div class="header__brand">
+        <div class="header__logo">ГУЛЯНДАМ</div>
+        <div class="header__subtitle">КЛИНИКА ДОКТОРА</div>
+    </div>
+    <nav class="header__nav">
+        <button class="header__link">Услуги</button>
+        <button class="header__link">О Докторе</button>
+        <button class="header__link">До / После</button>
+        <button class="header__link" data-action="book">Записаться</button>
+    </nav>
+</header>
+
+<!-- HERO SECTION -->
+<section class="hero" id="hero" data-module="hero">
+    <div class="hero__slides" id="slidesWrapper">
+        <div class="hero__slide hero__slide--active">
+            <video class="hero__video" muted autoplay loop playsinline>
+                <source src="./src/videos/BannerVideo.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="hero__slide">
+            <video class="hero__video" muted autoplay loop playsinline>
+                <source src="./src/videos/BannerVideo1.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="hero__slide">
+            <video class="hero__video" muted autoplay loop playsinline>
+                <source src="./src/videos/BannerVideo2.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+
+    <div class="hero__content">
+        <div class="hero__text hero__text--active">
+            <h1 class="hero__title">АППАРАТНЫЕ МЕТОДИКИ</h1>
+            <p class="hero__subtitle">ПРОФЕССИОНАЛЬНЫЙ УХОД ЗА КОЖЕЙ</p>
+        </div>
+        <div class="hero__text">
+            <h1 class="hero__title">СОВРЕМЕННЫЕ ТЕХНОЛОГИИ</h1>
+            <p class="hero__subtitle">БЕЗОПАСНЫЙ И ЭФФЕКТИВНЫЙ РЕЗУЛЬТАТ</p>
+        </div>
+        <div class="hero__text">
+            <h1 class="hero__title">КРАСОТА И МОЛОДОСТЬ</h1>
+            <p class="hero__subtitle">БЕЗ ХИРУРГИЧЕСКОГО ВМЕШАТЕЛЬСТВА</p>
+        </div>
+    </div>
+
+    <div class="hero__controls" id="controls"></div>
+
+    <button class="hero__arrow hero__arrow--prev" id="prevBtn" aria-label="Предыдущий слайд">‹</button>
+    <button class="hero__arrow hero__arrow--next" id="nextBtn" aria-label="Следующий слайд">›</button>
+
+    <div class="hero__gradient hero__gradient--top"></div>
+    <div class="hero__gradient hero__gradient--bottom"></div>
+</section>
+
+<!-- SERVICES CAROUSEL -->
+<section class="services" id="services" data-module="services">
+    <button class="services__arrow services__arrow--prev" aria-label="Прокрутить влево">❮</button>
+
+    <div class="services__container">
+        <div class="service-card">
+            <h3 class="service-card__title">УХОД</h3>
+            <p class="service-card__desc">Профессиональный уход за кожей лица с использованием аппаратных методик</p>
+        </div>
+        <div class="service-card">
+            <h3 class="service-card__title">КОНТУРНАЯ ПЛАСТИКА</h3>
+            <p class="service-card__desc">Коррекция черт лица современными безопасными методами</p>
+        </div>
+        <div class="service-card">
+            <h3 class="service-card__title">КОРРЕКЦИЯ МИМИЧЕСКИХ МОРЩИН</h3>
+            <p class="service-card__desc">Мягкое разглаживание мимических линий без инвазивных процедур</p>
+        </div>
+        <div class="service-card">
+            <h3 class="service-card__title">ЛАЗЕРНАЯ ЭПИЛЯЦИЯ</h3>
+            <p class="service-card__desc">Быстрая и безболезненная эпиляция современным лазерным оборудованием</p>
+        </div>
+    </div>
+
+    <button class="services__arrow services__arrow--next" aria-label="Прокрутить вправо">❯</button>
+</section>
+
+<!-- COLLAGE SECTION -->
+<section class="collage" id="collage" data-module="collage">
+    <div class="collage__container">
+        <div class="collage__grid"></div>
+
+        <div class="collage__item collage__item--large-portrait">
+            <video class="collage__media" muted autoplay loop playsinline>
+                <source src="./src/videos/clgVideo.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="collage__item collage__item--large-square">
+            <img class="collage__media" src="src/images/clgImg.jpg" alt="Косметология">
+        </div>
+
+        <div class="collage__item collage__item--small-portrait">
+            <img class="collage__media" src="src/images/clgImg1.jpg" alt="Процедура">
+        </div>
+
+        <div class="collage__shape collage__shape--yellow"></div>
+        <div class="collage__shape collage__shape--blue"></div>
+        <div class="collage__shape collage__shape--pink"></div>
+        <div class="collage__shape collage__shape--purple"></div>
+        <div class="collage__shape collage__shape--green"></div>
+        <div class="collage__shape collage__shape--teal"></div>
+    </div>
+</section>
+
+<!-- FOOTER (placeholder) -->
+<footer class="footer">
+    <div class="footer__content">
+        <p>&copy; 2025 ГУЛЯНДАМ. Все права защищены.</p>
+    </div>
+</footer>
+
+<script src="src/js/app.js" type="module"></script>
+</body>
+</html>

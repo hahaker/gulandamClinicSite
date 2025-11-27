@@ -1,0 +1,129 @@
+// ============ COLLAGE ============
+.collage {
+  padding: size('xxxl') size('xl');
+  background-color: color('cream');
+  min-height: 80vh;
+
+  @include media('tablet') {
+    padding: size('xxxl');
+  }
+}
+
+.collage__container {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 80vh;
+  overflow: hidden;
+}
+
+.collage__grid {
+  @include absolute-full;
+  background-color: transparent;
+  z-index: 0;
+}
+
+.collage__item {
+  position: absolute;
+  border-radius: size('large');
+  overflow: hidden;
+  box-shadow: shadow('large');
+  transition: transform transition('normal'), box-shadow transition('normal');
+  z-index: 1;
+
+  &:hover {
+    transform: scale(1.03) rotate(2deg);
+    box-shadow: shadow('deep');
+    z-index: 10;
+  }
+}
+
+.collage__media {
+  @include object-contain;
+}
+
+// Позиции элементов коллажа
+.collage__item--large-portrait {
+  width: 350px;
+  height: 500px;
+  top: 10%;
+  left: 5%;
+}
+
+.collage__item--large-square {
+  width: 280px;
+  height: 280px;
+  top: 35%;
+  right: 20%;
+}
+
+.collage__item--small-portrait {
+  width: 120px;
+  height: 180px;
+  top: 15%;
+  right: 5%;
+}
+
+// Геометрические фигуры
+.collage__shape {
+  position: absolute;
+  z-index: 0;
+  opacity: 0.5;
+  pointer-events: none;
+  border-radius: size('large');
+}
+
+.collage__shape--yellow {
+  width: 120px;
+  height: 80px;
+  background: linear-gradient(135deg, color('soft-peach'), #FFE066);
+  top: 5%;
+  right: 15%;
+  border-radius: 0 50% 0 50%;
+}
+
+.collage__shape--blue {
+  width: 100px;
+  height: 100px;
+  background: color('sky');
+  bottom: 10%;
+  left: 10%;
+  border-radius: 50%;
+}
+
+.collage__shape--pink {
+  width: 80px;
+  height: 80px;
+  background: color('pale-rose');
+  top: 30%;
+  left: 5%;
+  border-radius: 50%;
+}
+
+.collage__shape--purple {
+  width: 150px;
+  height: 150px;
+  background: color('lilac');
+  top: 25%;
+  right: 5%;
+  border-radius: 0 0 50% 50%;
+}
+
+.collage__shape--green {
+  width: 100px;
+  height: 60px;
+  background: color('sage');
+  bottom: 20%;
+  right: 15%;
+  border-radius: 50% 0 50% 0;
+}
+
+.collage__shape--teal {
+  width: 120px;
+  height: 120px;
+  background: color('mint');
+  bottom: 5%;
+  left: 25%;
+  border-radius: 50%;
+}

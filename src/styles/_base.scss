@@ -1,0 +1,154 @@
+// ============================================================================
+// Файл: src/styles/_base.scss — БЕЗ ОШИБОК
+// ============================================================================
+
+// ============ RESET & NORMALIZE ============
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #8B7B7B;
+  background-color: #FFFBF5;
+  overflow-x: hidden;
+  position: relative;
+}
+
+// ============ ТИПОГРАФИКА ============
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 300;
+  letter-spacing: 2px;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 72px;
+  color: #FFFFFF;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+h2 {
+  font-size: 48px;
+  color: #0F0F0F;
+}
+
+h3 {
+  font-size: 32px;
+  color: #0F0F0F;
+}
+
+p {
+  line-height: 1.6;
+  margin-bottom: 16px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+a {
+  color: #E8B4D1;
+  text-decoration: none;
+  transition: color 0.3s;
+
+  &:hover {
+    color: #D9B3E0;
+  }
+}
+
+// ============ КНОПКИ ============
+button {
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+  font-family: inherit;
+  cursor: pointer;
+  user-select: none;
+}
+
+// ============ ФОРМЫ ============
+input, textarea, select {
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+
+  &:focus {
+    outline: 2px solid #E8B4D1;
+    outline-offset: 2px;
+  }
+}
+
+// ============ ИЗОБРАЖЕНИЯ ============
+img, video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+picture {
+  display: block;
+}
+
+// ============ ТАБЛИЦЫ ============
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+// ============ СПИСКИ ============
+ul, ol {
+  list-style: none;
+}
+
+// ============ СЕКЦИИ ============
+section {
+  position: relative;
+  width: 100%;
+}
+
+// ============ КОНТЕЙНЕРЫ ============
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+// ============ УТИЛИТЫ ВИДИМОСТИ ============
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+// ============ SELECTION ============
+::selection {
+  background-color: #E8B4D1;
+  color: #FFFFFF;
+}

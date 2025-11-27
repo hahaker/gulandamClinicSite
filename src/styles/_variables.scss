@@ -1,0 +1,128 @@
+// ============ ЦВЕТОВАЯ ПАЛИТРА ============
+$palette: (
+  // Основные цвета
+        'cream':        #FFFBF5,
+        'white':        #FFFFFF,
+        'black':        #0F0F0F,
+
+  // Пастельные акценты
+        'soft-peach':   #F5E6D3,
+        'pale-rose':    #F0D5E8,
+        'light-lilac':  #E8D5F2,
+        'pale-sage':    #D5E8D5,
+        'soft-mint':    #D5F0E8,
+        'pale-blue':    #D5E8F5,
+
+  // Более выраженные пастельные
+        'peach':        #ECC9A8,
+        'rose':         #E8B4D1,
+        'lilac':        #D9B3E0,
+        'sage':         #B3D9B3,
+        'mint':         #A8E6D5,
+        'sky':          #A8D9F5,
+
+  // Темные пастельные (для текста, бордеров)
+        'taupe':        #8B7B7B,
+        'gray-soft':    #A89E9E,
+        'gray-light':   #D4CCCF,
+
+  // Функциональные
+        'overlay-dark': rgba(15, 15, 15, 0.5),
+        'overlay-light': rgba(255, 251, 245, 0.1)
+);
+
+@function color($name) {
+  @return map-get($palette, $name);
+}
+
+// ============ РАЗМЕРЫ ============
+$sizes: (
+        'xs': 4px,
+        'sm': 8px,
+        'md': 12px,
+        'lg': 16px,
+        'xl': 24px,
+        'xxl': 32px,
+        'xxxl': 48px
+);
+
+@function size($name) {
+  @return map-get($sizes, $name);
+}
+
+// ============ ТИПОГРАФИКА ============
+$fonts: (
+        'family-primary': ('Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif),
+        'family-secondary': ('Georgia', 'Garamond', serif),
+        'size-h1': clamp(36px, 5vw, 72px),
+        'size-h2': clamp(28px, 4vw, 48px),
+        'size-h3': clamp(20px, 2.5vw, 32px),
+        'size-body': 16px,
+        'size-small': 14px,
+        'size-tiny': 12px,
+        'weight-light': 300,
+        'weight-normal': 400,
+        'weight-medium': 500,
+        'weight-bold': 700,
+        'lh-tight': 1.2,
+        'lh-normal': 1.6,
+        'lh-relaxed': 1.8
+);
+
+@function font($name) {
+  @return map-get($fonts, $name);
+}
+
+// ============ ПЕРЕХОДЫ ============
+$transitions: (
+        'fast': 0.2s ease-out,
+        'normal': 0.3s ease-in-out,
+        'smooth': 0.5s ease-in-out,
+        'slow': 0.8s ease-in-out
+);
+
+@function transition($name) {
+  @return map-get($transitions, $name);
+}
+
+// ============ ТЕНИ ============
+$shadows: (
+        'soft': 0 2px 8px rgba(0, 0, 0, 0.08),
+        'medium': 0 4px 12px rgba(0, 0, 0, 0.12),
+        'large': 0 8px 24px rgba(0, 0, 0, 0.15),
+        'deep': 0 12px 40px rgba(0, 0, 0, 0.2)
+);
+
+@function shadow($name) {
+  @return map-get($shadows, $name);
+}
+
+// ============ BREAKPOINTS ============
+$breakpoints: (
+        'mobile': 320px,
+        'tablet': 768px,
+        'desktop': 1024px,
+        'wide': 1440px,
+        'ultra': 1920px
+);
+
+@function breakpoint($name) {
+  @return map-get($breakpoints, $name);
+}
+
+// ============ ПРОЧИЕ ПЕРЕМЕННЫЕ ============
+$border-radius: (
+        'small': 4px,
+        'medium': 8px,
+        'large': 12px,
+        'xl': 16px,
+        'round': 50%
+);
+
+$z-layers: (
+        'base': 0,
+        'overlay': 10,
+        'modal': 100,
+        'tooltip': 110,
+        'header': 1000
+);

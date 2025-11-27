@@ -1,0 +1,151 @@
+// ============ HERO ============
+.hero {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0;
+}
+
+.hero__slides {
+  @include absolute-full;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 0;
+}
+
+.hero__slide {
+  @include absolute-full;
+  opacity: 0;
+  transition: opacity transition('slow');
+
+  &.hero__slide--active {
+    opacity: 1;
+  }
+
+  &::after {
+    content: '';
+    @include absolute-full;
+    @include gradient-overlay;
+    pointer-events: none;
+  }
+}
+
+.hero__video {
+  @include object-contain;
+}
+
+.hero__content {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.hero__text {
+  position: absolute;
+  opacity: 0;
+  transform: scale(0.8) translateY(20px);
+  transition: all transition('smooth');
+  align-content: center;
+
+  &.hero__text--active {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.hero__title {
+  font-size: font('size-h1');
+  font-weight: font('weight-light');
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: size('lg');
+  @include text-shadow(8px, 0.7);
+}
+
+.hero__subtitle {
+  font-size: 16px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #ccc;
+  @include text-shadow(4px, 0.7);
+}
+
+.hero__arrow {
+  @include button-reset;
+  position: absolute;
+  z-index: 15;
+  bottom: 77px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 24px;
+  color: color('white');
+
+  @include glass-effect(0.1);
+  @include hover-state(1.1, transition('normal'));
+
+  &:focus-visible {
+    @include focus-visible;
+  }
+}
+
+.hero__arrow--prev {
+  left: size('xxxl');
+}
+
+.hero__arrow--next {
+  right: size('xxxl');
+}
+
+.hero__controls {
+  position: absolute;
+  bottom: 77px;
+  @include flex('row', center, center);
+  gap: size('md');
+  z-index: 20;
+}
+
+.dot {
+  width: 12px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.3);
+  border: none;
+  cursor: pointer;
+  transition: all transition('normal');
+  padding: 0;
+
+  &.dot.active {
+    width: 40px;
+    background: color('white');
+  }
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.6);
+  }
+}
+
+.hero__gradient {
+  position: absolute;
+  width: 100%;
+  z-index: 10;
+  pointer-events: none;
+
+  &.hero__gradient--top {
+    top: 0;
+    height: 50px;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), transparent);
+  }
+
+  &.hero__gradient--bottom {
+    bottom: 0;
+    height: 35px;
+    background: linear-gradient(to top, color('cream') 30%, rgba(255, 255, 255, 0.24));
+  }
+}

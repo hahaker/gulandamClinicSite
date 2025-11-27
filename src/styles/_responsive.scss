@@ -1,0 +1,245 @@
+/ ============ _responsive.scss ============
+
+// Mobile First
+@media (max-width: breakpoint('tablet') - 1px) {
+  .hero__title {
+    font-size: 36px !important;
+  }
+
+  .hero__subtitle {
+    font-size: 12px !important;
+  }
+
+  .hero__arrow {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+
+    &--prev {
+      left: size('lg');
+    }
+
+    &--next {
+      right: size('lg');
+    }
+  }
+
+  .header {
+    grid-template-columns: 1fr;
+    gap: size('lg');
+    height: auto;
+    padding: size('lg') size('md');
+  }
+
+  .header__nav {
+    flex-direction: column;
+    gap: size('md');
+    width: 100%;
+  }
+
+  .header__link {
+    font-size: 14px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .services {
+    padding: size('xl') size('md');
+    gap: size('xl');
+  }
+
+  .services__container {
+    gap: size('md');
+  }
+
+  .service-card {
+    flex: 0 0 200px;
+    padding: size('lg') size('md');
+  }
+
+  .service-card__title {
+    font-size: 12px;
+  }
+
+  .service-card__desc {
+    font-size: 11px;
+  }
+
+  .collage__item--large-portrait {
+    width: 200px;
+    height: 300px;
+    top: 20%;
+    left: 5%;
+  }
+
+  .collage__item--large-square {
+    width: 150px;
+    height: 150px;
+    top: 50%;
+    right: 10%;
+  }
+
+  .collage__item--small-portrait {
+    width: 80px;
+    height: 120px;
+    top: 10%;
+    right: 5%;
+  }
+
+  .collage__shape {
+    opacity: 0.3;
+  }
+
+  .collage__shape--yellow {
+    width: 80px;
+    height: 60px;
+  }
+
+  .collage__shape--purple {
+    width: 100px;
+    height: 100px;
+  }
+
+  .dot {
+    width: 8px;
+    height: 2px;
+
+    &.active {
+      width: 24px;
+    }
+  }
+}
+
+// Tablet
+@media (min-width: breakpoint('tablet')) and (max-width: breakpoint('desktop') - 1px) {
+  .hero__title {
+    font-size: 48px !important;
+  }
+
+  .hero__subtitle {
+    font-size: 14px !important;
+  }
+
+  .hero__arrow {
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
+
+    &--prev {
+      left: size('xl');
+    }
+
+    &--next {
+      right: size('xl');
+    }
+  }
+
+  .header {
+    grid-template-columns: 1fr auto auto auto auto;
+    gap: size('xl');
+    padding: size('md') size('xl');
+  }
+
+  .header__link {
+    font-size: 14px;
+  }
+
+  .services {
+    padding: size('xxxl') size('xl');
+  }
+
+  .service-card {
+    flex: 0 0 240px;
+  }
+
+  .collage__item--large-portrait {
+    width: 280px;
+    height: 420px;
+  }
+
+  .collage__item--large-square {
+    width: 220px;
+    height: 220px;
+  }
+}
+
+// Desktop and up
+@media (min-width: breakpoint('desktop')) {
+  // Все по умолчанию из основных стилей
+}
+
+// Wide screens
+@media (min-width: breakpoint('wide')) {
+  .collage__item--large-portrait {
+    width: 350px;
+    height: 500px;
+  }
+
+  .collage__item--large-square {
+    width: 280px;
+    height: 280px;
+  }
+}
+
+// Ultra wide
+@media (min-width: breakpoint('ultra')) {
+  .header {
+    gap: size('xxxl');
+  }
+
+  .services {
+    gap: size('xxxl');
+  }
+}
+
+// Dark mode (если нужен)
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: color('black');
+    color: color('gray-light');
+  }
+
+  .header {
+    background: rgba(0, 0, 0, 0.9);
+
+    &.scrolled {
+      background-color: rgba(0, 0, 0, 0.95);
+    }
+  }
+
+  .services {
+    background-color: color('black');
+  }
+
+  .service-card {
+    background: rgba(30, 30, 30, 0.5);
+  }
+
+  .collage {
+    background-color: color('black');
+  }
+}
+
+// Reduced motion
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+// Touch devices
+@media (hover: none) {
+  .header__link::after {
+    width: 0;
+  }
+
+  .service-card:active {
+    transform: scale(0.98);
+  }
+
+  .hero__arrow:active {
+    transform: translateY(-50%) scale(0.95);
+  }
+}

@@ -1,0 +1,60 @@
+// ============ _typography.scss ============
+.text-h1 {
+  font-size: font('size-h1');
+  font-weight: font('weight-light');
+  line-height: font('lh-tight');
+}
+
+.text-h2 {
+  font-size: font('size-h2');
+  font-weight: font('weight-light');
+  line-height: font('lh-tight');
+}
+
+.text-h3 {
+  font-size: font('size-h3');
+  font-weight: font('weight-normal');
+  line-height: font('lh-normal');
+}
+
+.text-body {
+  font-size: font('size-body');
+  font-weight: font('weight-normal');
+  line-height: font('lh-normal');
+}
+
+.text-small {
+  font-size: font('size-small');
+  font-weight: font('weight-normal');
+  line-height: font('lh-normal');
+}
+
+.text-tiny {
+  font-size: font('size-tiny');
+  font-weight: font('weight-normal');
+  line-height: font('lh-tight');
+}
+
+.text-uppercase {
+  @include text-uppercase;
+}
+
+.text-bold {
+  font-weight: font('weight-bold');
+}
+
+.text-light {
+  font-weight: font('weight-light');
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
