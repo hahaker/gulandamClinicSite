@@ -12,6 +12,7 @@
     <div class="header__brand">
         <div class="header__logo">ГУЛЯНДАМ</div>
         <div class="header__subtitle">КЛИНИКА ДОКТОРА</div>
+
     </div>
     <nav class="header__nav">
         <button class="header__link">Услуги</button>
@@ -22,7 +23,9 @@
 </header>
 
 <!-- HERO SECTION -->
+<!-- HERO SECTION -->
 <section class="hero" id="hero" data-module="hero">
+    <!-- ВИДЕО СЛАЙДЫ (фон) -->
     <div class="hero__slides" id="slidesWrapper">
         <div class="hero__slide hero__slide--active">
             <video class="hero__video" muted autoplay loop playsinline>
@@ -41,29 +44,60 @@
         </div>
     </div>
 
+    <!-- КОНТЕНТ (текст + кнопка) -->
     <div class="hero__content">
+        <!-- ТЕКСТ СЛАЙДА 1 -->
         <div class="hero__text hero__text--active">
             <h1 class="hero__title">АППАРАТНЫЕ МЕТОДИКИ</h1>
             <p class="hero__subtitle">ПРОФЕССИОНАЛЬНЫЙ УХОД ЗА КОЖЕЙ</p>
         </div>
+
+        <!-- ТЕКСТ СЛАЙДА 2 -->
         <div class="hero__text">
             <h1 class="hero__title">СОВРЕМЕННЫЕ ТЕХНОЛОГИИ</h1>
             <p class="hero__subtitle">БЕЗОПАСНЫЙ И ЭФФЕКТИВНЫЙ РЕЗУЛЬТАТ</p>
         </div>
+
+        <!-- ТЕКСТ СЛАЙДА 3 -->
         <div class="hero__text">
             <h1 class="hero__title">КРАСОТА И МОЛОДОСТЬ</h1>
             <p class="hero__subtitle">БЕЗ ХИРУРГИЧЕСКОГО ВМЕШАТЕЛЬСТВА</p>
         </div>
+
+        <!-- КНОПКА: Вариант 1 (Рекомендуется) - С пульсом -->
+        <div class="btn__container">
+            <button class="btn btn--primary btn--small btn--pulse">
+                Записаться на приём
+            </button>
+        </div>
+
+        <!-- КНОПКА: Вариант 2 (Альтернатива) - С волной и градиентом -->
+        <!-- <div class="btn__container">
+            <button class="btn btn--gradient btn--large">
+                Получить консультацию
+            </button>
+        </div> -->
+
+        <!-- КНОПКА: Вариант 3 (Альтернатива) - Маленькая -->
+        <!-- <div class="btn__container">
+            <button class="btn btn--primary btn--small btn--pulse">
+                Записаться
+            </button>
+        </div> -->
     </div>
 
+    <!-- ТОЧКИ УПРАВЛЕНИЯ (внизу) -->
     <div class="hero__controls" id="controls"></div>
 
+    <!-- СТРЕЛКИ НАВИГАЦИИ (слева и справа) -->
     <button class="hero__arrow hero__arrow--prev" id="prevBtn" aria-label="Предыдущий слайд">‹</button>
     <button class="hero__arrow hero__arrow--next" id="nextBtn" aria-label="Следующий слайд">›</button>
 
+    <!-- ГРАДИЕНТЫ -->
     <div class="hero__gradient hero__gradient--top"></div>
     <div class="hero__gradient hero__gradient--bottom"></div>
 </section>
+
 
 <!-- SERVICES CAROUSEL -->
 <section class="services" id="services" data-module="services">

@@ -63,6 +63,30 @@
   line-height: 1.6;
   color: #8B7B7B;
 }
+// ================КНОПКИ=================
+@mixin button-base {
+  @include button-reset;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: size('md');
+
+  font-family: font('family-primary');
+  font-weight: font('weight-medium');
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  user-select: none;
+
+  transition: all transition('normal');
+  position: relative;
+  overflow: hidden;
+
+  &:focus-visible {
+    @include focus-visible;
+  }
+}
 
 // ============ ИНТЕРАКТИВНОСТЬ ============
 @mixin button-reset {
@@ -89,7 +113,6 @@
 
 @mixin focus-visible {
   outline: 2px solid #E8B4D1;
-  outline-offset: 2px;
 }
 
 // ============ ФОНЫ & ГРАНИЦЫ ============

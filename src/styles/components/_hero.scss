@@ -39,12 +39,12 @@
 }
 
 .hero__content {
-  position: relative;
   display: flex;
   justify-content: center;
   text-align: center;
   z-index: 10;
   pointer-events: none;
+  bottom: 150px;
 }
 
 .hero__text {
@@ -67,6 +67,7 @@
   text-transform: uppercase;
   margin-bottom: size('lg');
   @include text-shadow(8px, 0.7);
+
 }
 
 .hero__subtitle {

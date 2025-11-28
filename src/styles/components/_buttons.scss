@@ -1,0 +1,373 @@
+// ============================================================================
+// Файл: src/styles/components/_button.scss — ПЕРЕДЕЛАННЫЕ КНОПКИ
+// ============================================================================
+
+// ============ БАЗОВАЯ КНОПКА ============
+
+
+
+  .btn {
+    @include button-reset;
+    margin-top: 150px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: size('md');
+
+    font-family: font('family-primary');
+    font-weight: font('weight-medium');
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+    overflow: hidden;
+
+    &:focus-visible {
+      @include focus-visible;
+    }
+  }
+
+  // ============ PRIMARY BUTTON (Основная) ============
+  .btn--primary {
+    padding: size('lg') size('xl');
+    font-size: font('size-body');
+    border-radius: size('large');
+
+    // Прозрачная с бордером по умолчанию
+    background: transparent;
+    color: color('rose');
+    border: 2px solid color('rose');
+
+    transition: all transition('normal');
+
+    // Заливка при наведении
+    &:hover {
+      background: color('rose');
+      color: color('white');
+      box-shadow: 0 8px 24px rgba(232, 180, 209, 0.4);
+      transform: translateY(-3px);
+    }
+
+    &:active {
+      transform: translateY(-1px);
+    }
+  }
+
+  // ============ GRADIENT BUTTON (С волной) ============
+  .btn--gradient {
+    padding: size('lg') size('xl');
+    font-size: font('size-body');
+    border-radius: size('large');
+
+    background: linear-gradient(135deg, color('rose'), color('lilac'));
+    color: color('white');
+    border: 2px solid color('rose');
+
+    position: relative;
+    overflow: hidden;
+
+    // Волновой эффект
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.6s ease;
+    }
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(217, 179, 224, 0.5);
+
+      &::before {
+        left: 100%;
+      }
+    }
+  }
+
+  // ============ SMALL BUTTON (Маленькая) ============
+  .btn--small {
+    padding: size('md') size('lg');
+    font-size: font('size-small');
+    border-radius: size('large');
+
+    // Прозрачная с бордером
+    background: transparent;
+    color: color('rose');
+    border: 2px solid color('rose');
+
+    transition: all transition('normal');
+
+    // Крутая анимация: растет и заливается
+    &:hover {
+      background: color('rose');
+      color: color('white');
+      border-color: color('rose');
+      transform: scale(1.08);
+      box-shadow: 0 6px 20px rgba(232, 180, 209, 0.4);
+    }
+
+    &:active {
+      transform: scale(1.04);
+    }
+  }
+
+  // ============ LARGE BUTTON (Большая) ============
+  .btn--large {
+    padding: size('xl') size('xxxl');
+    font-size: font('size-h3');
+    border-radius: size('large');
+
+    // Прозрачная с бордером
+    background: transparent;
+    color: color('rose');
+    border: 3px solid color('rose');
+
+    transition: all transition('smooth');
+    position: relative;
+    overflow: hidden;
+
+    // Фоновая заливка на hover
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: color('rose');
+      transition: left transition('normal');
+      z-index: -1;
+    }
+
+    &:hover {
+      color: color('white');
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(232, 180, 209, 0.5);
+      border-color: color('rose');
+
+      &::before {
+        left: 0;
+      }
+    }
+
+    &:active {
+      transform: translateY(-2px);
+    }
+  }
+
+  // ============ PULSE EFFECT (Пульсирующая) ============
+  .btn--pulse {
+    animation: pulse-glow 2s ease-in-out infinite;
+
+    &:hover {
+      animation: none;
+    }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 4px 12px rgba(232, 180, 209, 0.3);
+    }
+    50% {
+      box-shadow: 0 4px 25px rgba(232, 180, 209, 0.6);
+    }
+  }
+
+  // ============ GHOST BUTTON (Для темных фонов) ============
+  .btn--ghost {
+    padding: size('md') size('lg');
+    font-size: font('size-body');
+    border-radius: size('large');
+
+    background: transparent;
+    color: color('white');
+    border: 2px solid rgba(255, 255, 255, 0.5);
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: color('white');
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(5px);
+      transform: translateY(-2px);
+    }
+  }
+
+  // ============ OUTLINE BUTTON (Контурная) ============
+  .btn--outline {
+    padding: size('md') size('lg');
+    font-size: font('size-small');
+    border-radius: size('large');
+
+    background: transparent;
+    color: color('rose');
+    border: 2px solid color('rose');
+
+    &::after {
+      content: '→';
+      margin-left: 0;
+      opacity: 0;
+      transition: all transition('normal');
+    }
+
+    &:hover {
+      background: color('rose');
+      color: color('white');
+
+      &::after {
+        margin-left: size('md');
+        opacity: 1;
+      }
+    }
+  }
+
+  // ============ SECONDARY BUTTON (Вторичная) ============
+  .btn--secondary {
+    padding: size('lg') size('xl');
+    font-size: font('size-body');
+    border-radius: size('large');
+
+    background: transparent;
+    color: color('lilac');
+    border: 2px solid color('lilac');
+
+    &:hover {
+      background: color('lilac');
+      color: color('white');
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(217, 179, 224, 0.4);
+    }
+  }
+
+  // ============ ICON BUTTON (Круглая с иконкой) ============
+  .btn--icon {
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    border-radius: 50%;
+    font-size: 24px;
+
+    background: transparent;
+    color: color('rose');
+    border: 2px solid color('rose');
+
+    &:hover {
+      background: color('rose');
+      color: color('white');
+      transform: rotate(10deg) scale(1.15);
+      box-shadow: 0 6px 20px rgba(232, 180, 209, 0.5);
+    }
+  }
+
+  // ============ FULL WIDTH ============
+  .btn--full {
+    width: 100%;
+  }
+
+  // ============ DISABLED STATE ============
+  .btn--disabled,
+  .btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    border-color: #ccc;
+    color: #999;
+
+    &:hover {
+      transform: none;
+      box-shadow: none;
+      background: transparent;
+    }
+  }
+
+  // ============ BUTTON GROUPS ============
+  .btn-group {
+    display: flex;
+    gap: size('md');
+    flex-wrap: wrap;
+    align-items: center;
+
+    .btn {
+      flex: 1;
+      min-width: 140px;
+    }
+
+    &--vertical {
+      flex-direction: column;
+
+      .btn {
+        width: 100%;
+      }
+    }
+
+    &--stack {
+      flex-direction: column;
+      gap: size('sm');
+    }
+  }
+
+  // ============ CONTAINER ДЛЯ HERO ============
+  .btn__container {
+    z-index: 100;
+    margin-top: 60px;  // Отступ от текста
+    pointer-events: auto;
+
+    // Убедись что кнопка внутри кликабельна
+    button {
+      pointer-events: auto;
+    }
+  }
+
+  // ============ LOADING STATE ============
+  .btn--loading {
+    pointer-events: none;
+    opacity: 0.7;
+
+    &::after {
+      content: '';
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      border: 2px solid rgba(232, 180, 209, 0.3);
+      border-top-color: color('rose');
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-left: size('md');
+    }
+  }
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  // ============ ADAPTIVE ============
+  @media (max-width: 768px) {
+    .btn--primary,
+    .btn--gradient {
+      padding: size('md') size('lg');
+      font-size: font('size-small');
+    }
+
+    .btn--large {
+      padding: size('lg') size('xl');
+      font-size: font('size-body');
+      border-width: 2px;
+    }
+
+    .btn__container {
+      margin-top: 40px;
+    }
+
+    .btn-group {
+      flex-direction: column;
+
+      .btn {
+        width: 100%;
+      }
+    }
+  }
