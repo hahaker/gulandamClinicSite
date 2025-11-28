@@ -12,15 +12,34 @@
     <div class="header__brand">
         <div class="header__logo">ГУЛЯНДАМ</div>
         <div class="header__subtitle">КЛИНИКА ДОКТОРА</div>
-
     </div>
+
+    <!-- НАВИГАЦИЯ (видна на десктопе) -->
     <nav class="header__nav">
         <button class="header__link">Услуги</button>
         <button class="header__link">О Докторе</button>
         <button class="header__link">До / После</button>
         <button class="header__link" data-action="book">Записаться</button>
     </nav>
+
+    <!-- БУРГЕР МЕНЮ (видна на мобильном) -->
+    <button class="header__burger" id="headerBurger" aria-label="Открыть меню">
+        <span class="burger__line"></span>
+        <span class="burger__line"></span>
+        <span class="burger__line"></span>
+    </button>
 </header>
+
+<!-- ОВЕРЛЕЙ (затемнение) -->
+<div class="mobile-menu-overlay" id="menuOverlay"></div>
+
+<!-- МОБИЛЬНОЕ МЕНЮ -->
+<div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-menu__link" data-action="services">Услуги</button>
+    <button class="mobile-menu__link" data-action="doctor">О Докторе</button>
+    <button class="mobile-menu__link" data-action="before-after">До / После</button>
+    <button class="mobile-menu__link" data-action="book">Записаться</button>
+</div>
 
 <!-- HERO SECTION -->
 <!-- HERO SECTION -->

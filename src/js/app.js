@@ -5,6 +5,7 @@ import { Header } from './modules/Header.js';
 import { HeroSlider } from './modules/HeroSlider.js';
 import { ServiceCarousel } from './modules/ServiceCarousel.js';
 import { ScrollHandler } from './modules/ScrollHandler.js';
+import {MobileMenu} from './modules/MobileHeaderMenu.js';
 
 class Application {
     constructor() {
@@ -24,7 +25,8 @@ class Application {
         this.modules.header = new Header(this.eventBus);
         this.modules.heroSlider = new HeroSlider(this.eventBus);
         this.modules.serviceCarousel = new ServiceCarousel(this.eventBus);
-        this.modules.scrollHandler = new ScrollHandler(this.eventBus);
+        this.modules.scrollHandler = new ScrollHandler(this.eventBus)
+        this.modules.MobileMenu = new MobileMenu(this.eventBus);
     }
 
     setupGlobalListeners() {

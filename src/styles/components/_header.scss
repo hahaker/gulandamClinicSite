@@ -22,7 +22,7 @@
 
 .header.scrolled {
   background-color: rgba(color('cream'), 0.95);
-  //box-shadow: shadow('soft');
+  box-shadow: shadow('soft');
 }
 
 .header__brand {
@@ -54,9 +54,15 @@
   }
 }
 
+// ============ НАВИГАЦИЯ (ДЕСКТОП) ============
 .header__nav {
   @include flex('row', flex-end, center);
   gap: size('xxxl');
+
+  // На мобильном скрываем
+  @media (max-width: 768px) {
+    display: none;
+  }
 }
 
 .header__link {
@@ -70,6 +76,7 @@
 
   transition: color transition('normal');
 
+  // ТОЛЬКО ЛИНИЯ - БЕЗ БОРДЕРА
   &::after {
     content: '';
     position: absolute;
@@ -79,12 +86,19 @@
     height: 2px;
     background: color('peach');
     transition: width transition('normal');
+    border: none;
   }
 
-  &:hover::after,
-  &:focus-visible {
+  // При наведении линия растет
+  &:hover::after {
     width: 100%;
-    @include focus-visible;
+  }
+
+  // Отдельно фокус
+  &:focus-visible {
+    outline: 2px solid color('rose');
+    outline-offset: 2px;
+    border: none;
   }
 
   .header.scrolled & {
@@ -93,5 +107,156 @@
     &::after {
       background: color('rose');
     }
+  }
+}
+
+// ============ БУРГЕР МЕНЮ (МОБИЛЬНЫЙ) ============
+.header__burger {
+  @include button-reset;
+
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 24px;
+  cursor: pointer;
+  z-index: 1001;
+
+  // Показываем на мобильном
+  @media (max-width: 768px) {
+    display: flex;
+  }
+
+  &.active {
+    .burger__line {
+      &:nth-child(1) {
+        transform: rotate(45deg) translate(7px, 7px);
+      }
+
+      &:nth-child(2) {
+        opacity: 0;
+      }
+
+      &:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+      }
+    }
+  }
+}
+
+.burger__line {
+  width: 100%;
+  height: 2px;
+  background: color('white');
+  transition: all transition('normal');
+  border-radius: 1px;
+
+  .header.scrolled & {
+    background: color('black');
+  }
+}
+
+// ============ МОБИЛЬНОЕ МЕНЮ ============
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  max-width: 300px;
+  height: 100vh;
+  background: rgba(color('cream'), 0.98);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+
+  transform: translateX(100%);
+  transition: transform transition('normal');
+
+  overflow-y: auto;
+  padding-top: 120px;
+  padding: 120px size('xl') size('xl');
+
+  display: flex;
+  flex-direction: column;
+  gap: size('lg');
+
+  // Показываем когда активно
+  &.active {
+    transform: translateX(0);
+  }
+
+  // На десктопе скрыто
+  @media (min-width: 769px) {
+    display: none;
+  }
+}
+
+.mobile-menu__link {
+  @include button-reset;
+
+  font-size: 16px;
+  font-weight: font('weight-medium');
+  letter-spacing: 1px;
+  color: color('black');
+  text-transform: uppercase;
+  text-align: center;
+
+  padding: size('lg') size('md');
+  border-radius: size('large');
+
+  background: transparent;
+  border: 2px solid color('rose');
+
+  transition: all transition('normal');
+  cursor: pointer;
+
+  &:hover {
+    background: color('rose');
+    color: color('white');
+    transform: scale(1.05);
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+// ============ ОВЕРЛЕЙ (затемнение за меню) ============
+.mobile-menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity transition('normal');
+
+  &.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  @media (min-width: 769px) {
+    display: none;
+  }
+}
+
+// ============ АДАПТИВНОСТЬ ============
+@media (max-width: 768px) {
+  .header {
+    padding: size('lg') size('md');
+    grid-template-columns: 1fr auto;
+    gap: size('lg');
+  }
+
+  .header__logo {
+    font-size: 24px;
+  }
+
+  .header__subtitle {
+    font-size: 9px;
   }
 }
