@@ -22,7 +22,6 @@ class Application {
     }
 
     registerModules() {
-        this.modules.header = new Header(this.eventBus);
         this.modules.heroSlider = new HeroSlider(this.eventBus);
         this.modules.serviceCarousel = new ServiceCarousel(this.eventBus);
         this.modules.scrollHandler = new ScrollHandler(this.eventBus)

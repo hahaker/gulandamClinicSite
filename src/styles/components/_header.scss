@@ -154,6 +154,10 @@
   .header.scrolled & {
     background: color('black');
   }
+
+  &:hover{
+    rotate: 45deg;
+  }
 }
 
 // ============ МОБИЛЬНОЕ МЕНЮ ============
@@ -164,7 +168,7 @@
   width: 100%;
   max-width: 300px;
   height: 100vh;
-  background: rgba(color('cream'), 0.98);
+  background: rgba(color('black'), 0.98);
   backdrop-filter: blur(10px);
   z-index: 1000;
 
@@ -196,7 +200,7 @@
   font-size: 16px;
   font-weight: font('weight-medium');
   letter-spacing: 1px;
-  color: color('black');
+  color: color('white');
   text-transform: uppercase;
   text-align: center;
 

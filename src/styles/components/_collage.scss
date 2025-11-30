@@ -1,7 +1,7 @@
 // ============ COLLAGE ============
 .collage {
   padding: size('xxxl') size('xl');
-  background-color: color('cream');
+  background-color: color('black');
   min-height: 80vh;
 
   @include media('tablet') {
@@ -28,7 +28,6 @@
   position: absolute;
   border-radius: size('large');
   overflow: hidden;
-  box-shadow: shadow('large');
   transition: transform transition('normal'), box-shadow transition('normal');
   z-index: 1;
 
