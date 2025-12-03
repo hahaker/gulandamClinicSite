@@ -34,6 +34,7 @@
 }
 
 .service-card {
+  margin-top: 15px;
   flex: 0 0 280px;
   padding: size('xxxl') size('xl');
   text-align: center;
@@ -48,7 +49,6 @@
     background: linear-gradient(135deg, color('soft-peach'), rgba(240, 213, 232, 0.2));
     border-color: color('rose');
     transform: translateY(-8px);
-    box-shadow: shadow('large');
   }
 }
 

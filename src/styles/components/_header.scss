@@ -19,6 +19,19 @@
     padding: size('lg') size('xxxl');
   }
 }
+.hero-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(4, 4, 4, 0.07);
+  z-index: 999;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity transition('normal');
+}
 
 .header.scrolled {
   background-color: rgba(color('cream'), 0.95);
@@ -32,7 +45,7 @@
 .header-icon{
   width: 50px;
   height: 50px;
-  margin-top: 15px;
+  margin-top: 10px;
 }
 .header__logo {
   font-size: clamp(24px, 3vw, 35px);

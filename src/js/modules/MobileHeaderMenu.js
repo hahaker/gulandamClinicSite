@@ -1,7 +1,3 @@
-// ============================================================================
-// Файл: src/js/modules/MobileMenu.js
-// ============================================================================
-
 import { DOMUtils } from '../core/DOMUtils.js';
 
 export class MobileMenu {
@@ -30,8 +26,10 @@ export class MobileMenu {
         // Клик на оверлей
         DOMUtils.on(this.overlay, 'click', () => this.closeMenu());
 
-        // Клики на ссылки меню
-        DOMUtils.on(this.menuLinks, 'click', (e) => this.handleMenuClick(e));
+        // Клики на ссылки меню (ВАЖНО: работают ссылки и кнопки)
+        this.menuLinks.forEach(link => {
+            link.addEventListener('click', (e) => this.handleMenuClick(e));
+        });
 
         // Закрытие при нажатии Escape
         document.addEventListener('keydown', (e) => {
@@ -74,49 +72,49 @@ export class MobileMenu {
     }
 
     handleMenuClick(e) {
-        const action = DOMUtils.getAttr(e.target, 'data-action');
+        const target = e.target;
+        const action = DOMUtils.getAttr(target, 'data-action');
+        const href = target.getAttribute('href');
 
-        console.log('🔗 Клик на:', action);
+        console.log('🔗 Клик на:', action || href);
 
         // Закрыть меню после клика
         this.closeMenu();
 
-        // Отправить событие
-        this.eventBus.emit('menu-link-clicked', { action });
-
-        // Показать alert
+        // Обработка кнопок записи
         if (action === 'book') {
-            alert('Откроется форма записи');
-        }
-        const target = e.target;
-
-        // Если это якорная ссылка
-        if (target.getAttribute('href')?.startsWith('#')) {
-            e.preventDefault();
-            const targetId = target.getAttribute('href');
-
-            // Закрыть меню
-            this.closeMenu();
-
-            // Прокрутить к элементу
-            setTimeout(() => {
-                const element = document.querySelector(targetId);
-                if (element) {
-                    const offset = 100;
-                    const top = element.offsetTop - offset;
-                    window.scrollTo({
-                        top: top,
-                        behavior: 'smooth'
-                    });
-                }
-            }, 300);
-        }
-
-
-        if (action === 'book') {
-            this.closeMenu();
             this.eventBus.emit('book-click');
+            console.log('📝 Открыта форма записи');
+            return;
         }
+
+        // Обработка якорных ссылок (ссылки на разделы)
+        if (href && href.startsWith('#')) {
+            e.preventDefault();
+            this.scrollToSection(href);
+            return;
+        }
+
+        // Обработка обычных ссылок (переход на другие страницы)
+        if (href && !href.startsWith('#')) {
+            window.location.href = href;
+        }
+    }
+
+    scrollToSection(targetId) {
+        // Небольшая задержка для завершения анимации закрытия меню
+        setTimeout(() => {
+            const element = document.querySelector(targetId);
+            if (element) {
+                const offset = 100;
+                const top = element.offsetTop - offset;
+                window.scrollTo({
+                    top: top,
+                    behavior: 'smooth'
+                });
+                console.log('📍 Прокрутка к:', targetId);
+            }
+        }, 300);
     }
 
     destroy() {

@@ -10,7 +10,6 @@
 <!-- HEADER -->
 <header class="header" id="header" data-module="header">
     <div class="header__brand">
-
         <div class="" style=" display: grid; grid-template-columns: 65px 1fr">
             <img class="header-icon" src="src/images/logo.png"/>
             <div class="">
@@ -18,7 +17,6 @@
                 <div class="header__subtitle">КЛИНИКА ДОКТОРА</div>
             </div>
         </div>
-
     </div>
 
     <!-- НАВИГАЦИЯ (видна на десктопе) -->
@@ -43,14 +41,15 @@
 <!-- МОБИЛЬНОЕ МЕНЮ -->
 <div class="mobile-menu" id="mobileMenu">
     <h1>Меню</h1>
-    <button class="mobile-menu__link" data-action="services">Услуги</button>
-    <button class="mobile-menu__link" data-action="doctor">О Докторе</button>
-    <button class="mobile-menu__link" data-action="before-after">До / После</button>
+    <a class="mobile-menu__link" href="#services">Услуги</a>
+    <a class="mobile-menu__link" href="#about">О Докторе</a>
+    <a class="mobile-menu__link" href="#gallery">До / После</a>
     <button class="mobile-menu__link" data-action="book">Записаться</button>
 </div>
 
 <!-- HERO SECTION -->
 <section class="hero" id="hero" data-module="hero">
+
     <!-- ВИДЕО СЛАЙДЫ (фон) -->
     <div class="hero__slides" id="slidesWrapper">
         <div class="hero__slide hero__slide--active">
@@ -92,7 +91,7 @@
 
         <!-- КНОПКА: Вариант 1 (Рекомендуется) - С пульсом -->
         <div class="btn__container">
-            <button class="btn btn--primary btn--small btn--pulse">
+            <button class="btn btn--primary btn--small btn--pulse" data-action="book">
                 Записаться на приём
             </button>
         </div>
@@ -116,29 +115,31 @@
     <button class="services__arrow services__arrow--prev" aria-label="Прокрутить влево">❮</button>
 
     <div class="services__container">
-        <div class="service-card">
-            <h3 class="service-card__title">УХОД</h3>
+        <a href="servicesPages/bioRevitalization.html" class="service-card service-card--link">
+            <h3 class="service-card__title">биоревитализация</h3>
             <p class="service-card__desc">Профессиональный уход за кожей лица с использованием аппаратных методик</p>
-        </div>
-        <div class="service-card">
+        </a>
+        <a href="servicesPages/contouring.html" class="service-card service-card--link">
             <h3 class="service-card__title">КОНТУРНАЯ ПЛАСТИКА</h3>
             <p class="service-card__desc">Коррекция черт лица современными безопасными методами</p>
-        </div>
-        <div class="service-card">
+        </a>
+        <a href="servicesPages/wrinkles.html" class="service-card service-card--link">
             <h3 class="service-card__title">КОРРЕКЦИЯ МИМИЧЕСКИХ МОРЩИН</h3>
             <p class="service-card__desc">Мягкое разглаживание мимических линий без инвазивных процедур</p>
-        </div>
-        <div class="service-card">
+        </a>
+        <a href="servicesPages/epilation.html" class="service-card service-card--link">
             <h3 class="service-card__title">ЛАЗЕРНАЯ ЭПИЛЯЦИЯ</h3>
             <p class="service-card__desc">Быстрая и безболезненная эпиляция современным лазерным оборудованием</p>
-        </div>
+        </a>
     </div>
 
     <button class="services__arrow services__arrow--next" aria-label="Прокрутить вправо">❯</button>
 
 </section>
+
 <!-- ============ ABOUT SECTION ============ -->
-<section class="about" data-action="about" >
+<section class="about" id="about" >
+
     <div class="about__container">
         <h2 class="about__title">О ДОКТОРЕ</h2>
         <div class="about__content">
@@ -153,6 +154,7 @@
         </div>
     </div>
 </section>
+
 <section class="gallery" id="gallery">
     <div class="gallery__container">
         <h2 class="gallery__title">До / После</h2>
@@ -176,6 +178,7 @@
         </div>
     </div>
 </section>
+
 <!-- ============ MODAL WINDOW (Запись) ============ -->
 <div class="modal" id="bookingModal">
     <div class="modal__overlay" id="modalOverlay"></div>
