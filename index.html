@@ -10,16 +10,23 @@
 <!-- HEADER -->
 <header class="header" id="header" data-module="header">
     <div class="header__brand">
-        <div class="header__logo">ГУЛЯНДАМ</div>
-        <div class="header__subtitle">КЛИНИКА ДОКТОРА</div>
+
+        <div class="" style=" display: grid; grid-template-columns: 65px 1fr">
+            <img class="header-icon" src="src/images/logo.png"/>
+            <div class="">
+                <div class="header__logo">ГУЛЯНДАМ</div>
+                <div class="header__subtitle">КЛИНИКА ДОКТОРА</div>
+            </div>
+        </div>
+
     </div>
 
     <!-- НАВИГАЦИЯ (видна на десктопе) -->
     <nav class="header__nav">
-        <button class="header__link">Услуги</button>
-        <button class="header__link">О Докторе</button>
-        <button class="header__link">До / После</button>
-        <button class="header__link" data-action="book">Записаться</button>
+        <a class="header__link" href="#services" >Услуги</a>
+        <a class="header__link"  href="#about">О Докторе</a>
+        <a class="header__link" href="#gallery">До / После</a>
+        <a class="header__link" data-action="book">Записаться</a>
     </nav>
 
     <!-- БУРГЕР МЕНЮ (видна на мобильном) -->
@@ -89,20 +96,6 @@
                 Записаться на приём
             </button>
         </div>
-
-        <!-- КНОПКА: Вариант 2 (Альтернатива) - С волной и градиентом -->
-        <!-- <div class="btn__container">
-            <button class="btn btn--gradient btn--large">
-                Получить консультацию
-            </button>
-        </div> -->
-
-        <!-- КНОПКА: Вариант 3 (Альтернатива) - Маленькая -->
-        <!-- <div class="btn__container">
-            <button class="btn btn--primary btn--small btn--pulse">
-                Записаться
-            </button>
-        </div> -->
     </div>
 
     <!-- ТОЧКИ УПРАВЛЕНИЯ (внизу) -->
@@ -144,6 +137,89 @@
     <button class="services__arrow services__arrow--next" aria-label="Прокрутить вправо">❯</button>
 
 </section>
+<!-- ============ ABOUT SECTION ============ -->
+<section class="about" data-action="about" >
+    <div class="about__container">
+        <h2 class="about__title">О ДОКТОРЕ</h2>
+        <div class="about__content">
+            <div class="about__text">
+                <h3>Опыт и квалификация</h3>
+                <p>Доктор Гуляндам — специалист высочайшего уровня с более чем 15 лет опыта в косметологии и аппаратной медицине. Прошла обучение в ведущих клиниках Европы и США.</p>
+                <p>Использует только инновационные технологии и методики для достижения максимальных результатов при минимальном риске.</p>
+            </div>
+            <div class="about__image">
+                <img src="src/images/clgImg.jpg" alt="Доктор" style="width: 100%; border-radius: 12px;">
+            </div>
+        </div>
+    </div>
+</section>
+<section class="gallery" id="gallery">
+    <div class="gallery__container">
+        <h2 class="gallery__title">До / После</h2>
+        <div class="gallery__grid">
+            <div class="gallery__item">
+                <img src="src/images/clgImg.jpg" alt="Результат 1">
+                <p>Процедура ухода за кожей</p>
+            </div>
+            <div class="gallery__item">
+                <img src="src/images/clgImg1.jpg" alt="Результат 2">
+                <p>Контурная пластика</p>
+            </div>
+            <div class="gallery__item">
+                <img src="src/images/clgImg.jpg" alt="Результат 3">
+                <p>Коррекция морщин</p>
+            </div>
+            <div class="gallery__item">
+                <img src="src/images/clgImg1.jpg" alt="Результат 4">
+                <p>Лазерная эпиляция</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ============ MODAL WINDOW (Запись) ============ -->
+<div class="modal" id="bookingModal">
+    <div class="modal__overlay" id="modalOverlay"></div>
+    <div class="modal__content">
+        <button class="modal__close" id="modalClose">×</button>
+        <h2 class="modal__title">Запишитесь на приём</h2>
+        <p class="modal__subtitle">Заполните форму и наш администратор свяжется с вами</p>
+
+        <form class="modal__form" id="bookingForm">
+            <input
+                    type="text"
+                    class="modal__input"
+                    placeholder="Ваше имя"
+                    required
+            >
+            <input
+                    type="tel"
+                    class="modal__input"
+                    placeholder="Номер телефона"
+                    required
+            >
+            <input
+                    type="email"
+                    class="modal__input"
+                    placeholder="Email (опционально)"
+            >
+            <select class="modal__input" required>
+                <option value="">Выберите услугу</option>
+                <option value="care">Уход за кожей</option>
+                <option value="contouring">Контурная пластика</option>
+                <option value="wrinkles">Коррекция морщин</option>
+                <option value="epilation">Лазерная эпиляция</option>
+            </select>
+            <textarea
+                    class="modal__input modal__textarea"
+                    placeholder="Ваше сообщение (опционально)"
+                    rows="4"
+            ></textarea>
+            <button type="submit" class="btn btn--primary btn--large btn--full">
+                Записаться
+            </button>
+        </form>
+    </div>
+</div>
 
 
 <!-- FOOTER (placeholder) -->

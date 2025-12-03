@@ -88,6 +88,35 @@ export class MobileMenu {
         if (action === 'book') {
             alert('Откроется форма записи');
         }
+        const target = e.target;
+
+        // Если это якорная ссылка
+        if (target.getAttribute('href')?.startsWith('#')) {
+            e.preventDefault();
+            const targetId = target.getAttribute('href');
+
+            // Закрыть меню
+            this.closeMenu();
+
+            // Прокрутить к элементу
+            setTimeout(() => {
+                const element = document.querySelector(targetId);
+                if (element) {
+                    const offset = 100;
+                    const top = element.offsetTop - offset;
+                    window.scrollTo({
+                        top: top,
+                        behavior: 'smooth'
+                    });
+                }
+            }, 300);
+        }
+
+
+        if (action === 'book') {
+            this.closeMenu();
+            this.eventBus.emit('book-click');
+        }
     }
 
     destroy() {

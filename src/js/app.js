@@ -6,6 +6,8 @@ import { HeroSlider } from './modules/HeroSlider.js';
 import { ServiceCarousel } from './modules/ServiceCarousel.js';
 import { ScrollHandler } from './modules/ScrollHandler.js';
 import {MobileMenu} from './modules/MobileHeaderMenu.js';
+import {BookingModal} from './modules/BookingModal.js';
+import {SmoothScroll} from './modules/SmoothScroll.js';
 
 class Application {
     constructor() {
@@ -26,6 +28,8 @@ class Application {
         this.modules.serviceCarousel = new ServiceCarousel(this.eventBus);
         this.modules.scrollHandler = new ScrollHandler(this.eventBus)
         this.modules.MobileMenu = new MobileMenu(this.eventBus);
+        this.modules.BookingModal = new BookingModal(this.eventBus);
+        this.modules.SmoothScroll = new SmoothScroll(this.eventBus);
     }
 
     setupGlobalListeners() {

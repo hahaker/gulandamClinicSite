@@ -1,12 +1,12 @@
-// ============ Header.js ============
-
 import {DOMUtils} from "../core/DOMUtils.js";
+
 export class Header {
     constructor(eventBus) {
         this.eventBus = eventBus;
         this.header = DOMUtils.qs('.header');
         this.links = DOMUtils.qsa('.header__link');
         this.scrollThreshold = 50;
+
 
         this.init();
     }
@@ -19,9 +19,12 @@ export class Header {
     bindEvents() {
         DOMUtils.on(this.links, 'click', (e) => this.handleNavClick(e));
     }
-
     handleNavClick(e) {
         const action = e.target.getAttribute('data-action');
+        if (action === 'about'){
+            this.eventBus.emit(SmoothScroll('about'));
+        }
+
         if (action === 'book') {
             this.eventBus.emit('book-click');
         }
